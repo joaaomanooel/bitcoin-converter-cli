@@ -1,0 +1,56 @@
+{
+  "name": "bitcoin-converter-cli",
+  "version": "0.0.1",
+  "description": "A CLI to convert Bitcoin to any currency provided",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rimraf bin",
+    "build": "npm run clear && babel --out-dir bin src",
+    "build:watch": "npm run build -- --watch",
+    "lint": "./node_modules/.bin/eslint src/**/*.js tests/**/*.spec.js",
+    "prepush": "npm run lint && npm run test:converage",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --reporter nyan",
+    "test:tdd": "npm test -- --watch ",
+    "test:converage": "nyc npm test"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "bitcoin-converter-cli": "bin/main.js"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-converage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaaomanooel/bitcoin-converter-cli.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "João Manoel Neto <joaaomanooel@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joaaomanooel/bitcoin-converter-cli/issues"
+  },
+  "homepage": "https://github.com/joaaomanooel/bitcoin-converter-cli#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.1.1",
+    "nyc": "^11.8.0"
+  }
+}
