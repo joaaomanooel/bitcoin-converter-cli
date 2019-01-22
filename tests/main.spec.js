@@ -9,6 +9,6 @@ describe('Main CLI', () => {
       if (err) throw err;
       expect(stdout.replace('\n', '')).to.be.equal('Hello World!');
       done();
-    })
+    });
   });
-})
+});
