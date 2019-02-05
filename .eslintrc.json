@@ -1,6 +1,8 @@
 {
   "extends": "airbnb-base",
   "globals": {
+    "afterEach": true,
+    "beforeEach": true,
     "describe": true,
     "it": true
   },
