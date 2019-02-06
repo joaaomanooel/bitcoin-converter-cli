@@ -1,4 +1,5 @@
 const chai = require('chai');
+const chalk = require('chalk');
 const nock = require('nock');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
@@ -33,7 +34,11 @@ describe('ConvertBTC', () => {
     convertBTC();
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledWith('1 BTC to USD = 3436.26');
+      expect(consoleStub)
+        .to
+        .have
+        .been
+        .calledWith(`${chalk.red(1)} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(3436.26)}`);
       done();
     }, 300);
   });
@@ -47,7 +52,11 @@ describe('ConvertBTC', () => {
     convertBTC('USD', 10);
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledWith('10 BTC to USD = 3436.26');
+      expect(consoleStub)
+        .to
+        .have
+        .been
+        .calledWith(`${chalk.red(10)} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(3436.26)}`);
       done();
     }, 300);
   });
@@ -61,7 +70,11 @@ describe('ConvertBTC', () => {
     convertBTC('BRL', 10);
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledWith('10 BTC to BRL = 3436.26');
+      expect(consoleStub)
+        .to
+        .have
+        .been
+        .calledWith(`${chalk.red(10)} BTC to ${chalk.cyan('BRL')} = ${chalk.yellow(3436.26)}`);
       done();
     }, 300);
   });
@@ -75,7 +88,11 @@ describe('ConvertBTC', () => {
     convertBTC('BRL');
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledWith('1 BTC to BRL = 3436.26');
+      expect(consoleStub)
+        .to
+        .have
+        .been
+        .calledWith(`${chalk.red(1)} BTC to ${chalk.cyan('BRL')} = ${chalk.yellow(3436.26)}`);
       done();
     }, 300);
   });
@@ -89,7 +106,11 @@ describe('ConvertBTC', () => {
     convertBTC();
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledWith('Something went wrong in the API. Try in a few minutes.');
+      expect(consoleStub)
+        .to
+        .have
+        .been
+        .calledWith(chalk.red('Something went wrong in the API. Try in a few minutes.'));
       done();
     }, 300);
   });
