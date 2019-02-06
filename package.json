@@ -8,7 +8,7 @@
     "build": "npm run clear && babel --out-dir bin src",
     "build:watch": "npm run build -- --watch",
     "lint": "eslint src/**/*.js tests/**/*.spec.js",
-    "test": "mocha tests/**/*.spec.js --reporter nyan",
+    "test": "mocha tests/**/*.spec.js --reporter nyan --require @babel/polyfill",
     "test:tdd": "npm test -- --watch ",
     "test:coverage": "nyc npm test",
     "link": "npm run build && npm link"
@@ -47,6 +47,7 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
     "chai": "^4.2.0",
     "eslint": "^5.12.1",
@@ -64,6 +65,7 @@
     "chalk": "^2.4.2",
     "commander": "^2.19.0",
     "ora": "^3.0.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
   }
 }
