@@ -7,15 +7,15 @@
 ### Installing
 
 ```
-$ npm install -g btc-converter
+$ npm i -g bitcoin-converter-cli
 ```
 
 ### How to use
 
 ```sh
-btc-converter --help
+bitcoin-converter-cli --help
 
-  Usage: btc-converter [options]
+  Usage: bitcoin-converter-cli [options]
 
   Convert Bitcoin to any currency defined
 
