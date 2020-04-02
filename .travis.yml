@@ -17,8 +17,7 @@ after_script:
 deploy:
   provider: npm
   email: $EMAIL
-  api_key:
-    secure: $API_KEY
+  api_key: $API_KEY
   on:
     branch: master
     all_branches: false
