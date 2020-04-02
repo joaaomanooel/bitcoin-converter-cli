@@ -7,7 +7,7 @@ const btcConverter = './src/main.js';
 
 describe('Main CLI', () => {
   it('Should return version of bitcoin-converter', (done) => {
-    exec(`${btcConverter} --version`, (err, stdout, stderr) => {
+    exec(`${btcConverter} --version`, (err, stdout) => {
       if (err) throw err;
       expect(stdout.replace('\n', '')).to.be.eql(pkg.version);
       done();
@@ -15,7 +15,7 @@ describe('Main CLI', () => {
   });
 
   it('Should return the description when bitcoin-converter --help', (done) => {
-    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+    exec(`${btcConverter} --help`, (err, stdout) => {
       if (err) throw err;
       expect(stdout.includes('Convert Bitcoin to any currency defined')).to.be.true;
       done();
@@ -23,7 +23,7 @@ describe('Main CLI', () => {
   });
 
   it('Should return the currency options when bitcoin-converter --help', (done) => {
-    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+    exec(`${btcConverter} --help`, (err, stdout) => {
       if (err) throw err;
       expect(stdout.includes('--currency')).to.be.true;
       done();
@@ -31,7 +31,7 @@ describe('Main CLI', () => {
   });
 
   it('Should return the amount options when bitcoin-converter --help', (done) => {
-    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+    exec(`${btcConverter} --help`, (err, stdout) => {
       if (err) throw err;
       expect(stdout.includes('--amount')).to.be.true;
       done();

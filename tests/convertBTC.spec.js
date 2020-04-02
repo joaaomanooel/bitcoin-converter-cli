@@ -10,93 +10,103 @@ const { expect } = chai;
 
 describe('ConvertBTC', () => {
   let consoleStub;
-
   const responseMock = {
-    price: 3436.26,
-    success: true,
-    time: '2019-02-05 17:30:59',
+    USD: { high: '5.285', low: '5.223', pctChange: '0.55', bid: '5.2769', ask: '5.2799' },
+    BTC: { high: '36500', low: '32300', pctChange: '8.79', bid: '35301', ask: '35400' },
   };
 
-  beforeEach(() => {
-    consoleStub = sinon.stub(console, 'info');
-  });
-
-  afterEach(() => {
-    consoleStub.restore();
-  });
+  beforeEach(() => { consoleStub = sinon.stub(console, 'info'); });
+  afterEach(() => { consoleStub.restore(); });
 
   it('Should use currency USD and 1 as amount default', async () => {
-    nock('https://apiv2.bitcoinaverage.com/')
-      .get('/convert/global')
-      .query({ from: 'BTC', to: 'USD', amount: 1 })
-      .reply(200, responseMock);
+    nock('https://economia.awesomeapi.com.br/').get('/json/all').reply(200, responseMock);
 
     await convertBTC();
 
-    expect(consoleStub)
-      .to
-      .have
-      .been
-      .calledWith(`${chalk.red(1)} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(3436.26)}`);
+    const toCurrency = value => parseFloat(value).toFixed(3);
+    const low = toCurrency(responseMock.BTC.low / responseMock.USD.low);
+    const high = toCurrency(responseMock.BTC.high / responseMock.USD.high);
+    const sale = toCurrency(responseMock.BTC.ask / responseMock.USD.ask);
+    const buy = toCurrency(responseMock.BTC.bid / responseMock.USD.bid);
+
+
+    expect(consoleStub).to.have.been.calledWith(`${
+      chalk.hex('#B84BFF').bold('Bitcoin Converter')}${
+      chalk.hex('#D697FF')(` | 1 BTC to ${chalk.underline.bold('USD')}:`)}\n\n${
+      chalk.cyan.bold('LOW:')} ${chalk.yellow(`${low}`)}\n\n${
+      chalk.cyan.bold('HIGH:')} ${chalk.yellow(`${high}`)}\n\n${
+      chalk.cyan.bold('VARIANT:')} ${chalk.yellow(`${responseMock.BTC.pctChange}%`)}\n\n${
+      chalk.cyan.bold('SALE:')} ${chalk.yellow(`${sale}`)}\n\n${
+      chalk.cyan.bold('BUY:')} ${chalk.yellow(`${buy}`)}\n`);
   });
 
   it('Should use currency USD and 10 as amount', async () => {
-    nock('https://apiv2.bitcoinaverage.com/')
-      .get('/convert/global')
-      .query({ from: 'BTC', to: 'USD', amount: 10 })
-      .reply(200, responseMock);
+    nock('https://economia.awesomeapi.com.br/').get('/json/all').reply(200, responseMock);
 
     await convertBTC('USD', 10);
+    const toCurrency = value => parseFloat(value * 10).toFixed(3);
+    const low = toCurrency(responseMock.BTC.low / responseMock.USD.low);
+    const high = toCurrency(responseMock.BTC.high / responseMock.USD.high);
+    const sale = toCurrency(responseMock.BTC.ask / responseMock.USD.ask);
+    const buy = toCurrency(responseMock.BTC.bid / responseMock.USD.bid);
 
-    expect(consoleStub)
-      .to
-      .have
-      .been
-      .calledWith(`${chalk.red(10)} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(3436.26)}`);
+    expect(consoleStub).to.have.been.calledWith(`${
+      chalk.hex('#B84BFF').bold('Bitcoin Converter')}${
+      chalk.hex('#D697FF')(` | 10 BTC to ${chalk.underline.bold('USD')}:`)}\n\n${
+      chalk.cyan.bold('LOW:')} ${chalk.yellow(`${low}`)}\n\n${
+      chalk.cyan.bold('HIGH:')} ${chalk.yellow(`${high}`)}\n\n${
+      chalk.cyan.bold('VARIANT:')} ${chalk.yellow(`${responseMock.BTC.pctChange}%`)}\n\n${
+      chalk.cyan.bold('SALE:')} ${chalk.yellow(`${sale}`)}\n\n${
+      chalk.cyan.bold('BUY:')} ${chalk.yellow(`${buy}`)}\n`);
   });
 
   it('Should use currency BRL and 10 as amount', async () => {
-    nock('https://apiv2.bitcoinaverage.com/')
-      .get('/convert/global')
-      .query({ from: 'BTC', to: 'BRL', amount: 10 })
-      .reply(200, responseMock);
+    nock('https://economia.awesomeapi.com.br/').get('/json/all').reply(200, responseMock);
 
     await convertBTC('BRL', 10);
+    const toCurrency = value => parseFloat(value * 10).toFixed(3);
+    const low = toCurrency(responseMock.BTC.low);
+    const high = toCurrency(responseMock.BTC.high);
+    const sale = toCurrency(responseMock.BTC.ask);
+    const buy = toCurrency(responseMock.BTC.bid);
 
-    expect(consoleStub)
-      .to
-      .have
-      .been
-      .calledWith(`${chalk.red(10)} BTC to ${chalk.cyan('BRL')} = ${chalk.yellow(3436.26)}`);
+    expect(consoleStub).to.have.been.calledWith(`${
+      chalk.hex('#B84BFF').bold('Bitcoin Converter')}${
+      chalk.hex('#D697FF')(` | 10 BTC to ${chalk.underline.bold('BRL')}:`)}\n\n${
+      chalk.cyan.bold('LOW:')} ${chalk.yellow(`${low}`)}\n\n${
+      chalk.cyan.bold('HIGH:')} ${chalk.yellow(`${high}`)}\n\n${
+      chalk.cyan.bold('VARIANT:')} ${chalk.yellow(`${responseMock.BTC.pctChange}%`)}\n\n${
+      chalk.cyan.bold('SALE:')} ${chalk.yellow(`${sale}`)}\n\n${
+      chalk.cyan.bold('BUY:')} ${chalk.yellow(`${buy}`)}\n`);
   });
 
   it('Should use currency BRL and 1 as amount default', async () => {
-    nock('https://apiv2.bitcoinaverage.com/')
-      .get('/convert/global')
-      .query({ from: 'BTC', to: 'BRL', amount: 1 })
-      .reply(200, responseMock);
+    nock('https://economia.awesomeapi.com.br/').get('/json/all').reply(200, responseMock);
 
     await convertBTC('BRL');
+    const toCurrency = value => parseFloat(value).toFixed(3);
+    const low = toCurrency(responseMock.BTC.low);
+    const high = toCurrency(responseMock.BTC.high);
+    const sale = toCurrency(responseMock.BTC.ask);
+    const buy = toCurrency(responseMock.BTC.bid);
 
-    expect(consoleStub)
-      .to
-      .have
-      .been
-      .calledWith(`${chalk.red(1)} BTC to ${chalk.cyan('BRL')} = ${chalk.yellow(3436.26)}`);
+    expect(consoleStub).to.have.been.calledWith(`${
+      chalk.hex('#B84BFF').bold('Bitcoin Converter')}${
+      chalk.hex('#D697FF')(` | 1 BTC to ${chalk.underline.bold('BRL')}:`)}\n\n${
+      chalk.cyan.bold('LOW:')} ${chalk.yellow(`${low}`)}\n\n${
+      chalk.cyan.bold('HIGH:')} ${chalk.yellow(`${high}`)}\n\n${
+      chalk.cyan.bold('VARIANT:')} ${chalk.yellow(`${responseMock.BTC.pctChange}%`)}\n\n${
+      chalk.cyan.bold('SALE:')} ${chalk.yellow(`${sale}`)}\n\n${
+      chalk.cyan.bold('BUY:')} ${chalk.yellow(`${buy}`)}\n`);
   });
 
   it('Should message user when api reply with error', async () => {
-    nock('https://apiv2.bitcoinaverage.com/')
-      .get('/convert/global')
-      .query({ from: 'BTC', to: 'USD', amount: 15 })
-      .replyWithError('Error');
+    nock('https://economia.awesomeapi.com.br/').get('/json/all').replyWithError('Error');
 
     await convertBTC();
 
-    expect(consoleStub)
-      .to
-      .have
-      .been
-      .calledWith(chalk.red('Something went wrong in the API. Try in a few minutes.'));
+    expect(consoleStub).to.have.been.calledWith(
+      chalk.red('Something went wrong in the API. Try in a few minutes.'),
+    );
   });
 });
