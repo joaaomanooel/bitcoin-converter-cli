@@ -4,13 +4,12 @@ node_js:
 
 cache:
   npm: true
-  yarn: true
   directories:
     - node_modules
 
 script:
-  - yarn lint
-  - yarn coveralls
+  - npm run lint
+  - npm run coveralls
 
 after_script:
   - "cat ./coverage/lcov.info | coveralls"
