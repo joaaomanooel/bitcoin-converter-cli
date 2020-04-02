@@ -1,8 +1,10 @@
-language: node_js:11.6-alpine
+language: node_js
 node_js:
   - '11.6'
 
 cache:
+  npm: true
+  yarn: true
   directories:
     - node_modules
 
