@@ -29,6 +29,25 @@ bitcoin-converter-cli --help
     -A, --amount <amount>      Value in Bitcoin to convert. (Default: 1)
 ```
 
+### Coins Code
+
+- USD (Business Dollar)
+- USDT (Tourism Dollar)
+- CAD (Canadian Dollar)
+- AUD (Australian Dollar)
+- EUR (Euro)
+- GBP (British Pound)
+- BRL (Brazilian Real)
+- ARS (Argentine Peso)
+- JPY (Japanese Yen)
+- CHF (Swiss Franc)
+- CNY (Chinese Yuan)
+- YLS (Israeli New Shekel)
+- BTC (Bitcoin)
+- LTC (Litecoin)
+- ETH (Ethereum)
+- XRP (Ripple)
+
 ### Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
