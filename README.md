@@ -1,5 +1,5 @@
 # bitcoin-converter-cli  :moneybag:
-[![Known Vulnerabilities](https://snyk.io/test/github//joaaomanooel/bitcoin-converter-cli/badge.svg)](https://snyk.io/test/github/joaaomanooel/bitcoin-converter-cli)
+[![Build Status](https://travis-ci.org/joaaomanooel/bitcoin-converter-cli.svg?branch=master)](https://travis-ci.org/joaaomanooel/bitcoin-converter-cli)[![Known Vulnerabilities](https://snyk.io/test/github//joaaomanooel/bitcoin-converter-cli/badge.svg)](https://snyk.io/test/github/joaaomanooel/bitcoin-converter-cli)[![Coverage Status](https://coveralls.io/repos/github/joaaomanooel/bitcoin-converter-cli/badge.svg?branch=master)](https://coveralls.io/github/joaaomanooel/bitcoin-converter-cli?branch=master)[![npm](https://img.shields.io/npm/v/bitcoin-converter-cli?color=%23F20505)](https://www.npmjs.com/package/bitcoin-converter-cli)[![GitHub](https://img.shields.io/github/license/joaaomanooel/bitcoin-converter-cli)](LICENSE.md)
 
 ***
 > A CLI to convert Bitcoin to any currency provided
@@ -28,6 +28,25 @@ bitcoin-converter-cli --help
     -C, --currency <currency>  Currency to be converted. (Default: USD)
     -A, --amount <amount>      Value in Bitcoin to convert. (Default: 1)
 ```
+
+### Coins Code
+
+- USD (Business Dollar)
+- USDT (Tourism Dollar)
+- CAD (Canadian Dollar)
+- AUD (Australian Dollar)
+- EUR (Euro)
+- GBP (British Pound)
+- BRL (Brazilian Real)
+- ARS (Argentine Peso)
+- JPY (Japanese Yen)
+- CHF (Swiss Franc)
+- CNY (Chinese Yuan)
+- YLS (Israeli New Shekel)
+- BTC (Bitcoin)
+- LTC (Litecoin)
+- ETH (Ethereum)
+- XRP (Ripple)
 
 ### Contributing
 
