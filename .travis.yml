@@ -6,7 +6,6 @@ cache:
   yarn: true
   directories:
     - node_modules
-    - bin
 
 script:
   - yarn lint
@@ -17,6 +16,7 @@ after_script:
   - "cat ./coverage/lcov.info | coveralls"
 
 deploy:
+  skip_cleanup: true
   provider: npm
   email: $EMAIL
   api_key: $API_KEY
