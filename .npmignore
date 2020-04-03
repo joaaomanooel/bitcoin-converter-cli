@@ -1,0 +1,16 @@
+# Build folder
+!bin/
+
+# Develop folder
+.github/
+.nyc_output/
+coverage/
+img/
+src/
+tests/
+
+# dotfiles
+.*
+
+# Markdown
+CONTRIBUTING.md

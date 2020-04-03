@@ -62,3 +62,4 @@ typings/
 
 # Builds artefacts
 bin/
+package/
