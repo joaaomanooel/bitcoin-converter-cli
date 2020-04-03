@@ -6,16 +6,15 @@ cache:
   yarn: true
   directories:
     - node_modules
+    - bin
 
 script:
   - yarn lint
   - yarn coveralls
+  - yarn build
 
 after_script:
   - "cat ./coverage/lcov.info | coveralls"
-
-before_deploy:
-  - yarn build
 
 deploy:
   provider: npm
