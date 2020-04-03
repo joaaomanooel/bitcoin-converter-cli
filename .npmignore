@@ -2,12 +2,11 @@
 !bin/
 
 # Develop folder
-.github/
-.nyc_output/
 coverage/
 img/
 src/
 tests/
+package/
 
 # dotfiles
 .*

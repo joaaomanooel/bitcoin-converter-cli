@@ -1,15 +1,20 @@
 # bitcoin-converter-cli  :moneybag:
+
 [![Build Status](https://travis-ci.org/joaaomanooel/bitcoin-converter-cli.svg?branch=master)](https://travis-ci.org/joaaomanooel/bitcoin-converter-cli) [![Known Vulnerabilities](https://snyk.io/test/github//joaaomanooel/bitcoin-converter-cli/badge.svg)](https://snyk.io/test/github/joaaomanooel/bitcoin-converter-cli) [![Coverage Status](https://coveralls.io/repos/github/joaaomanooel/bitcoin-converter-cli/badge.svg?branch=master)](https://coveralls.io/github/joaaomanooel/bitcoin-converter-cli?branch=master) [![npm](https://img.shields.io/npm/v/bitcoin-converter-cli?color=%23F20505)](https://www.npmjs.com/package/bitcoin-converter-cli) [![GitHub](https://img.shields.io/github/license/joaaomanooel/bitcoin-converter-cli)](LICENSE.md)
 
 ***
 > A CLI to convert Bitcoin to any currency provided
 
-![Example CLI running](img/bitcoin-converter-cli.gif)
-
 ### Installing
 
+```sh
+npm i -g bitcoin-converter-cli
 ```
-$ npm i -g bitcoin-converter-cli
+
+### Use without installing
+
+```sh
+npx bitcoin-converter-cli
 ```
 
 ### How to use
@@ -27,6 +32,24 @@ bitcoin-converter-cli --help
     -V, --version              output the version number
     -C, --currency <currency>  Currency to be converted. (Default: USD)
     -A, --amount <amount>      Value in Bitcoin to convert. (Default: 1)
+```
+
+<br />***Example***:
+
+```sh
+bitcoin-converter-cli -C USD -A 1
+
+  Bitcoin Converter | 1 BTC to USD:
+
+  LOW: 6507.631
+
+  HIGH: 6879.524
+
+  VARIANT: 3.59%
+
+  SALE: 6733.566
+
+  BUY: 6711.281
 ```
 
 ### Coins Code

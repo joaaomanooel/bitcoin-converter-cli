@@ -63,3 +63,6 @@ typings/
 # Builds artefacts
 bin/
 package/
+
+# Apple .DS_Store files
+.DS_Store
