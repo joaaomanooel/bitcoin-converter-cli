@@ -24,7 +24,8 @@
     "check-converage": true,
     "reporter": [
       "text",
-      "html"
+      "html",
+      "lcov"
     ],
     "exclude": [
       "tests/**"
