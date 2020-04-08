@@ -14,6 +14,7 @@ script:
 
 after_script:
   - "cat ./coverage/lcov.info | coveralls"
+  - "bash <(curl -s https://codecov.io/bash)"
 
 deploy:
   skip_cleanup: true

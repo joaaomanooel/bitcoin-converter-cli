@@ -28,7 +28,8 @@
       "lcov"
     ],
     "exclude": [
-      "tests/**"
+      "tests/**",
+      "bin/**"
     ]
   },
   "repository": {
