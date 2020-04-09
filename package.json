@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-converter-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A CLI to convert Bitcoin to any currency provided",
   "main": "bin/main.js",
   "scripts": {
