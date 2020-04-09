@@ -37,4 +37,12 @@ describe('Main CLI', () => {
       done();
     });
   });
+
+  it('Should return the sub title with default values', (done) => {
+    exec(btcConverter, (err, stdout) => {
+      if (err) throw err;
+      expect(stdout.includes('1 BTC to USD')).to.be.true;
+      done();
+    });
+  });
 });
