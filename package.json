@@ -12,7 +12,9 @@
     "test:tdd": "npm test -- --watch ",
     "test:coverage": "nyc npm test",
     "link": "npm run build && npm link",
-    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "preferGlobal": true,
   "bin": {
@@ -78,8 +80,10 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "commander": "^5.0.0",
-    "ora": "^4.0.3",
+    "ora": "^6.0.1",
     "request": "^2.88.2",
-    "request-promise-native": "^1.0.8"
-  }
+    "request-promise-native": "^1.0.9",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
